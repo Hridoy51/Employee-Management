@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name',255);
             $table->string('job_title',100);
             $table->date('joining_date');
-            $table->double('salary');
+            $table->integer('salary');
             $table->string('email',255)->unique()->nullable();
             $table->string('mobile_no')->unique();
             $table->text('address');

@@ -10,6 +10,9 @@
         <th>Salary</th>
         <th>Email</th>
         <th>Mobile_no</th>
+        <th>Details</th>
+        <th>Update</th>
+        <th>Delete</th>
     </tr>
     @foreach ($employees as $employee)
         <tr>
@@ -20,13 +23,24 @@
             <td>{{$employee->salary}}</td>
             <td>{{$employee->email}}</td>
             <td>{{$employee->mobile_no}}</td>
-        
-            <td><a class="btn btn-outline-info" href="{{route('employee.show', $employee->id)}}">Details</a></td>
-            <td><form method="post" action="{{route('emplyee.destroy', $employee->id)}}" onsubmit="return confirm('Sure?')">
-                @csrf
-                @method('Delete')
-                <input type="submit" value="Delete" class="btn btn-danger">
-            </form></td>
+            <td>
+                <a class="btn btn-warning" href="{{route('employee.show',$employee->id)}}">Details</a>
+            </td>
+            <td>
+                <form method="GET" action="{{route('employee.edit', $employee->id)}}">
+                    @csrf
+                    <input class="btn btn-primary" type="submit" name="update" value="Update">
+                </form>
+            </td>
+
+            <td>
+                <form method="POST" action="{{route('employee.delete', $employee->id)}}" onsubmit="return confirm('Sure?')">
+                    @csrf
+                    @method('Delete')
+                    <input class="btn btn-danger" type="submit" name="update" value="Delete">
+                </form>
+            </td>
+
         </tr>
 
     @endforeach

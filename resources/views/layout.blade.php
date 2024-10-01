@@ -14,8 +14,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="{{route('employee.index')}}">Employee Management</a>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form method="GET" action = "{{route('employee.search')}}" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name = "search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
